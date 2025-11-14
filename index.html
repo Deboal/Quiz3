@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sexual Compatibility Profile</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 16px;
+      line-height: 1.5;
+    }
+    h1, h2 {
+      margin-bottom: 4px;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    legend {
+      font-weight: 600;
+      padding: 0 4px;
+    }
+    .question {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #bbb;
+      box-sizing: border-box;
+    }
+    .small-note {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    button#generate {
+      background: #2563eb;
+      color: white;
+    }
+    button#clear {
+      background: #e5e7eb;
+    }
+    #output {
+      height: 220px;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sexual Compatibility Profile</h1>
+  <p class="small-note">
+    Each person fills this out separately. Click "Generate Profile" and paste the result into an AI to compare two profiles and discuss compatibility.
+  </p>
+
+  <form id="quizForm">
+    <div class="question">
+      <label for="name">Your name or initials (optional)</label>
+      <input type="text" id="name" name="name" placeholder="Alex / Kati / Initials">
+    </div>
+
+    <fieldset>
+      <legend>A. Overall vibe</legend>
+
+      <div class="question">
+        <label for="q1">1. How important is sex in a great relationship for you?</label>
+        <select id="q1" name="q1">
+          <option value="">Select one</option>
+          <option>Core pillar</option>
+          <option>Very important but not everything</option>
+          <option>Nice bonus</option>
+          <option>Low priority</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q2">2. Which sentence sounds most like you?</label>
+        <select id="q2" name="q2">
+          <option value="">Select one</option>
+          <option>I am usually the one with the higher drive.</option>
+          <option>I am usually pretty matched with my partner.</option>
+          <option>I am usually the one with the lower drive.</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q3">3. If we are both tired at the end of the day, how likely are you to still want sex?</label>
+        <select id="q3" name="q3">
+          <option value="">Select one</option>
+          <option>Very likely</option>
+          <option>Depends on the day</option>
+          <option>Pretty unlikely</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>B. Frequency and energy</legend>
+
+      <div class="question">
+        <label for="q4">4. In a great relationship, how often would you ideally like sex?</label>
+        <select id="q4" name="q4">
+          <option value="">Select one</option>
+          <option>A few times a week</option>
+          <option>About once a week</option>
+          <option>A few times a month</option>
+          <option>Whenever it naturally happens</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q5">5. When your sex life is “right,” it feels...</label>
+        <select id="q5" name="q5">
+          <option value="">Select one</option>
+          <option>Passionate and frequent</option>
+          <option>Deep, connected, and steady</option>
+          <option>Playful and flexible</option>
+          <option>Comforting and low pressure</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q6">6. How intense do you like sex to feel on average?</label>
+        <select id="q6" name="q6">
+          <option value="">Select one</option>
+          <option>Soft and slow most of the time</option>
+          <option>A mix of soft and intense</option>
+          <option>Mostly high energy and intense</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>C. Initiation and signals</legend>
+
+      <div class="question">
+        <label for="q7">7. Who do you like to initiate more often?</label>
+        <select id="q7" name="q7">
+          <option value="">Select one</option>
+          <option>Me</option>
+          <option>My partner</option>
+          <option>A pretty even split</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q8">8. What kind of initiation feels best to you?</label>
+        <select id="q8" name="q8">
+          <option value="">Select one</option>
+          <option>Verbal “I want you” type signals</option>
+          <option>Playful teasing or flirting</option>
+          <option>Physical touch that clearly says “let us go”</option>
+          <option>Quiet closeness that slowly builds</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q9">9. How do you feel if your partner initiates more often than you do?</label>
+        <select id="q9" name="q9">
+          <option value="">Select one</option>
+          <option>Love it</option>
+          <option>Totally fine</option>
+          <option>I would feel guilty if I never initiated</option>
+          <option>I would probably feel pressured</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>D. Adventure and comfort</legend>
+
+      <div class="question">
+        <label for="q10">10. How do you feel about trying new things sexually?</label>
+        <select id="q10" name="q10">
+          <option value="">Select one</option>
+          <option>I live for novelty</option>
+          <option>I like to experiment sometimes</option>
+          <option>I prefer a few favorite things done really well</option>
+          <option>I am more comfortable staying familiar</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q11">11. How do you feel about playful power dynamics?</label>
+        <select id="q11" name="q11">
+          <option value="">Select one</option>
+          <option>A big yes</option>
+          <option>Curious or open in the right trust</option>
+          <option>Neutral</option>
+          <option>Not really my thing</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q12">12. What is your comfort level with talking openly about fantasies and preferences?</label>
+        <select id="q12" name="q12">
+          <option value="">Select one</option>
+          <option>Totally comfortable, I like direct conversations</option>
+          <option>Comfortable once trust is built</option>
+          <option>A little shy but willing</option>
+          <option>Very private</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>E. Emotions, aftercare, and boundaries</legend>
+
+      <div class="question">
+        <label for="q13">13. Right after sex, what do you usually want most?</label>
+        <select id="q13" name="q13">
+          <option value="">Select one</option>
+          <option>Cuddling or staying close</option>
+          <option>Joking, talking, hanging out</option>
+          <option>Quiet, relaxed decompression</option>
+          <option>Space or shifting to solo mode</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q14">14. Emotionally, sex feels mostly like...</label>
+        <select id="q14" name="q14">
+          <option value="">Select one</option>
+          <option>A way to bond deeply</option>
+          <option>A mix of fun and connection</option>
+          <option>Primarily physical pleasure</option>
+          <option>Depends heavily on the situation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q15">15. How easy is it for you to say “no” or “not tonight”?</label>
+        <select id="q15" name="q15">
+          <option value="">Select one</option>
+          <option>Very easy, I am direct</option>
+          <option>I can do it, but I worry about disappointing them</option>
+          <option>Hard, I tend to go along</option>
+          <option>Depends a lot on the person</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q16">16. How would you want us to handle mismatched desire?</label>
+        <select id="q16" name="q16">
+          <option value="">Select one</option>
+          <option>Talk about it directly and adjust together</option>
+          <option>Blend compromise and creativity</option>
+          <option>Keep it light and not overanalyze</option>
+          <option>Not sure, still figuring that out</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>F. Free response (optional but helpful)</legend>
+
+      <div class="question">
+        <label for="q17">17. In one or two sentences, describe your ideal sexual dynamic with a partner.</label>
+        <textarea id="q17" name="q17" rows="3"></textarea>
+      </div>
+      <div class="question">
+        <label for="q18">18. Anything that feels like an important boundary or “must have” to mention?</label>
+        <textarea id="q18" name="q18" rows="3"></textarea>
+      </div>
+    </fieldset>
+
+    <button type="button" id="generate">Generate Profile</button>
+    <button type="reset" id="clear">Clear Form</button>
+
+    <div class="question">
+      <label for="output">Copy this text into an AI to compare two profiles:</label>
+      <textarea id="output" readonly></textarea>
+    </div>
+  </form>
+
+  <script>
+    function safe(v) {
+      return v && v.trim() ? v.trim() : "Not specified";
+    }
+
+    document.getElementById("generate").addEventListener("click", function () {
+      const name = document.getElementById("name").value || "Participant";
+
+      const answers = {};
+      for (let i = 1; i <= 18; i++) {
+        const el = document.getElementById("q" + i);
+        if (el) answers["q" + i] = el.value;
+      }
+
+      const profile =
+`Sexual Compatibility Profile
+Name: ${safe(name)}
+
+A. Overall vibe
+1) Importance of sex: ${safe(answers.q1)}
+2) Relative drive level: ${safe(answers.q2)}
+3) Interest when tired: ${safe(answers.q3)}
+
+B. Frequency and energy
+4) Ideal frequency: ${safe(answers.q4)}
+5) When sex life feels “right,” it feels: ${safe(answers.q5)}
+6) Preferred average intensity: ${safe(answers.q6)}
+
+C. Initiation and signals
+7) Preferred initiator pattern: ${safe(answers.q7)}
+8) Preferred style of initiation: ${safe(answers.q8)}
+9) Feelings if partner initiates more: ${safe(answers.q9)}
+
+D. Adventure and comfort
+10) Openness to trying new things: ${safe(answers.q10)}
+11) View on playful power dynamics: ${safe(answers.q11)}
+12) Comfort with talking about fantasies/preferences: ${safe(answers.q12)}
+
+E. Emotions, aftercare, and boundaries
+13) Preferred post-sex vibe: ${safe(answers.q13)}
+14) Emotional meaning of sex: ${safe(answers.q14)}
+15) Ease of saying “no” or “not tonight”: ${safe(answers.q15)}
+16) Preferred way to handle mismatched desire: ${safe(answers.q16)}
+
+F. Free responses
+17) Ideal sexual dynamic (self description): ${safe(answers.q17)}
+18) Key boundaries or must-haves: ${safe(answers.q18)}
+`;
+
+      document.getElementById("output").value = profile;
+    });
+  </script>
+</body>
+</html>
